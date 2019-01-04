@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -66,8 +67,11 @@ public class Anonymizer {
 
 	public List<User> resultFilter(List<User> result){
 		List<User> filterResult=new ArrayList<>();
+		/*System.out.println(userIdentifiers.size());*/
 		for(User poi:result){
-			for(Map<String, Integer> grid:this.userIdentifiers){
+			Iterator<Map<String, Integer>> iterator=userIdentifiers.iterator();
+			while (iterator.hasNext()) {
+				Map<String, Integer> grid=iterator.next();
 				if(poi.getGridx()==grid.get("X")&&poi.getGridy()==grid.get("Y")){
 					filterResult.add(poi);
 				}

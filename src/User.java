@@ -55,7 +55,6 @@ public class User {
 	 * @return 返回加密网格标识集合List
 	 */
 	public List<Map<String, Integer>> generateEncodingSet(int r){
-		int n=this.getQuerySpace().getN();
 		int count=0;
 		List<Map<String, Integer>> identifiers=new ArrayList<>();
 		Area queryArea=this.getQueryArea(this.x, this.y, r);
@@ -69,8 +68,10 @@ public class User {
 				grid.put("X", j);
 				grid.put("Y", i);
 				identifiers.add(grid);
+				count++;
 			}
 		}
+		/*System.out.println(count);*/
 		return identifiers;
 	}
 	
