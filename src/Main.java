@@ -27,7 +27,7 @@ public class Main {
 			int communicationcost=0;
 			for(User user:userList){
 				long start=System.currentTimeMillis();
-				Map<String, Object> userMSG=user.generateMSG(500, 25, userList);
+				Map<String, Object> userMSG=user.generateMSG(750, 40, userList);
 				ccostu2a++;
 				long time1 = System.currentTimeMillis();
 				anonymizer.cacheGridIdentifier(userMSG);
@@ -46,12 +46,11 @@ public class Main {
 				lasttime+=time4-start;
 				communicationcost=ccostu2a+ccostu2l;
 			}
+			avercc+=communicationcost;
 			long end=System.currentTimeMillis();
-			averageLastTime+=lasttime;
 			averagetime+=sumtime;
 		}
 		System.out.println("匿名器平均运行时间:"+averagetime/10+" ms");
-		System.out.println("平均运行时间:"+averageLastTime/10+" ms");
-
+		System.out.println("平均通信次数:"+avercc/10);
 }
 }
