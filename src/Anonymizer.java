@@ -67,18 +67,11 @@ public class Anonymizer {
 
 	public List<User> resultFilter(List<User> result){
 		List<User> filterResult=new ArrayList<>();
-		int count=0;
-		//System.out.println(userIdentifiers.size());
 		for(User poi:result){
-			/*Iterator<Map<String, Integer>> iterator=userIdentifiers.iterator();
-			while (iterator.hasNext()) {
-				Map<String, Integer> grid=iterator.next();
+			for(Map<String, Integer> grid:this.userIdentifiers){
 				if(poi.getGridx()==grid.get("X")&&poi.getGridy()==grid.get("Y")){
 					filterResult.add(poi);
 				}
-			}*/
-			for(int i=0;i<userIdentifiers.size();i++){
-				count++;
 			}
 		}
 		return filterResult;
